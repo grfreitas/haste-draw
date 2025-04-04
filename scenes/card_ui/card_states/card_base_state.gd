@@ -12,8 +12,6 @@ func enter() -> void:
 	# Emit the signal to so the hand reparents the card
 	# Useful when going back to base state
 	card_ui.reparent_requested.emit(card_ui)
-	card_ui.color.color = Color.WEB_GREEN
-	card_ui.state.text = "BASE"
 
 	# Makes so the card follows the mouse and not offset
 	card_ui.pivot_offset = Vector2.ZERO

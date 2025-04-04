@@ -1,13 +1,22 @@
-[gd_scene load_steps=10 format=3 uid="uid://d1e0msqlgskxv"]
+[gd_scene load_steps=12 format=3 uid="uid://d1e0msqlgskxv"]
 
 [ext_resource type="Theme" uid="uid://cktulo3y7f7v8" path="res://main_theme.tres" id="1_5hln7"]
-[ext_resource type="Script" path="res://scenes/card_ui/card_ui.gd" id="2_otssx"]
-[ext_resource type="Script" path="res://scenes/card_ui/card_state_machine.gd" id="3_qjmk3"]
-[ext_resource type="Script" path="res://scenes/card_ui/card_states/card_base_state.gd" id="4_r67e6"]
-[ext_resource type="Script" path="res://scenes/card_ui/card_states/card_clicked_state.gd" id="5_y4v4y"]
-[ext_resource type="Script" path="res://scenes/card_ui/card_states/card_dragging_state.gd" id="6_nq7o1"]
-[ext_resource type="Script" path="res://scenes/card_ui/card_states/card_released_state.gd" id="7_3xew7"]
-[ext_resource type="Script" path="res://scenes/card_ui/card_states/card_aiming_state.gd" id="8_ylu2q"]
+[ext_resource type="Script" uid="uid://optiq2nwu4b8" path="res://scenes/card_ui/card_ui.gd" id="2_otssx"]
+[ext_resource type="Texture2D" uid="uid://cgopx2ponr1qi" path="res://art/tile_0121.png" id="3_qeblu"]
+[ext_resource type="Script" uid="uid://cagiwioldmyds" path="res://scenes/card_ui/card_state_machine.gd" id="3_qjmk3"]
+[ext_resource type="Script" uid="uid://brgmf2a2cadnd" path="res://scenes/card_ui/card_states/card_base_state.gd" id="4_r67e6"]
+[ext_resource type="Script" uid="uid://bx02lcg7qdhiy" path="res://scenes/card_ui/card_states/card_clicked_state.gd" id="5_y4v4y"]
+[ext_resource type="Script" uid="uid://gsxruy5l1kyh" path="res://scenes/card_ui/card_states/card_dragging_state.gd" id="6_nq7o1"]
+[ext_resource type="Script" uid="uid://cgnemw27bby7r" path="res://scenes/card_ui/card_states/card_released_state.gd" id="7_3xew7"]
+[ext_resource type="Script" uid="uid://bfcvj8smi72id" path="res://scenes/card_ui/card_states/card_aiming_state.gd" id="8_ylu2q"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ci03s"]
+bg_color = Color(0.615686, 0.494118, 0.898039, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.0593515, 0.34543, 0.291848, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_de048"]
 size = Vector2(25, 30)
@@ -25,7 +34,7 @@ grow_vertical = 2
 theme = ExtResource("1_5hln7")
 script = ExtResource("2_otssx")
 
-[node name="Color" type="ColorRect" parent="."]
+[node name="Panel" type="Panel" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -33,18 +42,33 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-color = Color(0.443482, 0.178941, 0.186268, 1)
+theme_override_styles/panel = SubResource("StyleBoxFlat_ci03s")
 
-[node name="State" type="Label" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "state"
+[node name="Cost" type="Label" parent="."]
+layout_mode = 0
+offset_right = 10.0
+offset_bottom = 10.0
+text = "2"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Icon" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -5.0
+offset_top = -5.0
+offset_right = 5.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("3_qeblu")
+expand_mode = 1
+stretch_mode = 5
 
 [node name="DropPointDetector" type="Area2D" parent="."]
 collision_mask = 2

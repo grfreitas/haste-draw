@@ -4,8 +4,6 @@ const MOUSE_Y_SNAPSHOT_THRESHOLD := 138
 
 
 func enter() -> void:
-	card_ui.color.color = Color.LIGHT_CORAL
-	card_ui.state.text = "AIMING"
 	card_ui.targets.clear()
 
 	# Animate to the center of the hand
